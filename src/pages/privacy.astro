@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BlogEntries from "@/components/BlogEntry.astro";
-import Cta from "@/components/Cta.astro";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
@@ -18,9 +17,8 @@ const sortedPosts = allPosts.sort(
       <h1
         class="text-4xl text-balance font-medium font-display text-base-900"
       >
-        About page about page about page yo
+        Privacy Policy
       </h1>
-      <Cta />
     </div>
   </section>
 </BaseLayout>

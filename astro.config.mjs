@@ -20,6 +20,6 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://yourwebsite.com',
+  site: 'https://jacra.me',
   integrations: [sitemap(), mdx()]
 });
