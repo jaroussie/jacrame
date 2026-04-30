@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
 const { title, url, description, pubDate, author, image, tags } = Astro.props;
+const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: '2-digit',
+});
 ---
 
 <article class="flex flex-col flex-1 h-full">
@@ -18,9 +23,9 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
 
   <div class="mt-1">
     <div class="flex items-center space-x-1 text-xs text-base-500">
-      <span class="font-medium">{author}</span>
-      <span aria-hidden="true">&middot;</span>
-      <time datetime={pubDate}>{pubDate}</time>
+      <!-- <span class="font-medium">{author}</span> -->
+      <!-- <span aria-hidden="true">&middot;</span> -->
+      <time datetime={pubDate}>{formattedDate}</time>
     </div>
 
     <h3 class="mt-4 text-base text-base-900 text-balance">

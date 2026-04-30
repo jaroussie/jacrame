@@ -1,14 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BlogEntries from "@/components/BlogEntry.astro";
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-// Sort posts by date in descending order (newest first)
-const sortedPosts = allPosts.sort(
-  (a, b) =>
-    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-);
 ---
 
 <BaseLayout>
@@ -19,6 +11,45 @@ const sortedPosts = allPosts.sort(
       >
         Privacy Policy
       </h1>
+      <p class="text-sm text-base-500 mt-4">
+        Last Updated: <time datetime="2026-04-30">April 30, 2026</time>
+      </p>
+    <div class="space-y-12 text-base-600 leading-relaxed mt-12">
+        <h2 class="text-xl font-semibold text-base-900 mb-4">Data Collection & Tracking</h2>
+        <p class="mb-4">
+          This website does <strong class="text-base-800">not</strong> use cookies, local storage, or any other browser-based tracking mechanisms. It does <strong class="text-base-800">not</strong> collect names, email addresses, or any personal identifiers.
+        </p>
+        <h2 class="text-xl font-semibold text-base-900 mb-4">Infrastructure & Third-Parties</h2>
+        <p class="mb-4">
+          This website is hosted on GitHub, distributed with Cloudflare, and loads the Inter font family from Rasmus Andersson's dedicated website. These services may collect basic technical logs (like your IP address). Do check their respective privacy policies for more information on how they handle your data.
+        </p>
+        <div class="bg-base-50 rounded-xl p-6 border border-base-100">
+          <ul class="space-y-4">
+            <li>
+              <span class="block font-medium text-base-900">GitHub (Hosting)</span>
+              <span class="block text-sm">Content delivery and server security.</span>
+            </li>
+            <li>
+              <span class="block font-medium text-base-900">Cloudflare (CDN)</span>
+              <span class="block text-sm">Performance optimization and threat protection.</span>
+            </li>
+            <li>
+              <span class="block font-medium text-base-900">rsms.me (Font)</span>
+              <span class="block text-sm">Serves the Inter font family.</span>
+            </li>
+          </ul>
+        </div>
+        <h2 class="text-xl font-semibold text-base-900 mb-4">External Links</h2>
+        <p>
+          Content on this site may link to external websites. I am not responsible for 
+          the content or privacy policies of those third-party sites. I encourage you 
+          to read their policies when you leave this domain.
+        </p>
+        <h2 class="text-xl font-semibold text-base-900 mb-4">Contact</h2>
+        <p>
+          If you have questions about this policy, you can reach out via the 
+          links provided on the homepage.
+        </p>
     </div>
   </section>
 </BaseLayout>
